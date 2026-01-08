@@ -1179,9 +1179,7 @@ const projectsData = {
                  'GCS GUI2.png'
         ],
         videos: ['GCS.mp4'],
-        code:''
-    }
-};`,
+        code:'',
         links: [
             {
                 text: 'GitHub Repository',
@@ -1210,25 +1208,7 @@ const projectsData = {
         technologies: ['Python', 'NLP', 'Scikit-learn', 'NLTK', 'Pandas', 'TF-IDF', 'Word Embeddings'],
         images: [],
         videos: [],
-        code: `# NLP Review Classifier - Feature Extraction
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import RandomForestClassifier
-import nltk
-
-class ReviewClassifier:
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(
-            max_features=5000,
-            ngram_range=(1, 2),
-            stop_words='english'
-        )
-        self.classifier = RandomForestClassifier(
-            n_estimators=100
-        )
-
-    def preprocess(self, text):
-        tokens = nltk.word_tokenize(text.lower())
-        return ' '.join(tokens)`,
+        code: '',
         links: [
             {
                 text: 'GitHub Repository',
@@ -1262,31 +1242,7 @@ class ReviewClassifier:
         technologies: ['Python', 'Scikit-learn', 'Pandas', 'Matplotlib', 'Regression', 'Feature Engineering'],
         images: [],
         videos: [],
-        code: `# Airfoil Noise Prediction Model
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.preprocessing import StandardScaler
-
-# Load aeroacoustic dataset
-# Features: frequency, angle of attack, chord length, 
-#           free-stream velocity, displacement thickness
-
-X_train, X_test, y_train, y_test = load_data()
-
-# Feature scaling
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-# Train model
-model = GradientBoostingRegressor(
-    n_estimators=200,
-    max_depth=5,
-    learning_rate=0.1
-)
-model.fit(X_train_scaled, y_train)
-
-# Predict sound pressure level
-predictions = model.predict(X_test_scaled)`,
+        code: ``,
         links: [
             {
                 text: 'GitHub Repository',
