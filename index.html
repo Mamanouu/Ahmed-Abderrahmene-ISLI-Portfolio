@@ -1133,32 +1133,12 @@ const projectsData = {
         images: [
             // Add your image URLs here
              'mavsim1.png',
-            // 'path/to/simulator-screenshot2.jpg'
         ],
         videos: [
             // Add your video URLs here
              'mavsim.mp4'
         ],
-        code: `# Flight Simulator - Atmospheric Model Example
-import numpy as np
-
-class AtmosphereModel:
-    def __init__(self):
-        self.T0 = 288.15  # K
-        self.p0 = 101325  # Pa
-        self.rho0 = 1.225 # kg/m³
-
-    def get_conditions(self, altitude):
-        """Calculate ISA atmosphere conditions"""
-        if altitude < 11000:
-            T = self.T0 - 0.0065 * altitude
-            p = self.p0 * (T/self.T0)**5.2561
-        else:
-            T = 216.65
-            p = 22632 * np.exp(-0.000157 * (altitude - 11000))
-
-        rho = p / (287 * T)
-        return T, p, rho`,
+        code: ``,
         links: [
             {
                 text: 'GitHub Repository',
@@ -1186,34 +1166,20 @@ class AtmosphereModel:
             fr: 'Septembre 2024 - Juin 2025'
         },
         description: {
-            en: 'Designed and implemented a complete avionics system for a competitive scientific rocket including onboard flight computer software in C++ and ground control station. Developed embedded systems for telemetry data acquisition, real-time sensor processing, flight state estimation, and wireless communication. Created Python/C++ ground station software for mission monitoring and data visualization.',
-            fr: 'Conçu et mis en œuvre un système avionique complet pour une fusée scientifique de compétition comprenant un logiciel embarqué en C++ et une station de contrôle au sol. Développé des systèmes embarqués pour l acquisition de données de télémétrie, le traitement en temps réel des capteurs et la communication sans fil.'
+            en: 'Designed and implemented a complete avionics system and ground station control for a competitive scientific rocket including onboard flight computer software in C++ and ground control station. Developed embedded systems for telemetry data acquisition, real-time sensor processing, flight state estimation, and wireless communication. Created Python/C++ ground station software for mission monitoring and data visualization.',
+            fr: 'Conçu et mis en œuvre un système avionique complet et une station de control au sol pour une fusée scientifique de compétition comprenant un logiciel embarqué en C++ et une station de contrôle au sol. Développé des systèmes embarqués pour l acquisition de données de télémétrie, le traitement en temps réel des capteurs et la communication sans fil.'
         },
         technologies: ['C++', 'Python', 'Embedded Systems', 'Telemetry', 'IMU', 'GPS', 'Real-time Systems'],
-        images: [],
-        videos: [],
-        code: `// Rocket Telemetry System - C++ Example
-class TelemetrySystem {
-private:
-    IMU imu;
-    GPS gps;
-    Barometer baro;
-
-public:
-    struct FlightData {
-        float altitude;
-        float velocity;
-        float acceleration[3];
-        float attitude[3];
-    };
-
-    FlightData getFlightData() {
-        FlightData data;
-        data.altitude = baro.readAltitude();
-        imu.readAcceleration(data.acceleration);
-        imu.readAttitude(data.attitude);
-        // Calculate velocity from integration
-        return data;
+        images: ['Avionics bay.png',
+                 'Avionics bay2.png',
+                 'Flight computer.png',
+                 'GCS Boitier.png',
+                 'GCS Boitier2.png',
+                 'GCS GUI.png',
+                 'GCS GUI2.png'
+        ],
+        videos: ['GCS.mp4'],
+        code:''
     }
 };`,
         links: [
