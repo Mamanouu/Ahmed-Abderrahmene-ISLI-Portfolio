@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Abderrahmene Isli - Aeronautical Engineering Student</title>
+    <style>
+        :root {
+            /* Aerospace Color Palette */
+            --color-space-dark: #0a1628;
+            --color-space-darker: #050b14;
+            --color-teal-primary: #00d4ff;
+            --color-teal-light: #1ec4e0;
+            --color-silver: #e8e8e8;
+            --color-silver-dark: #a8a8a8;
+            --color-accent-gold: #d4af37;
+            --color-accent-red: #ff4655;
+            --color-surface: #0f1f30;
+            --color-surface-light: #1a2a3a;
+            
+            /* Typography */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-mono: 'Courier New', monospace;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, var(--color-space-darker) 0%, var(--color-space-dark) 100%);
+            color: var(--color-silver);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: var(--spacing-xl);
+            right: var(--spacing-xl);
+            display: flex;
+            gap: 0;
+            z-index: 1000;
+            background: rgba(15, 31, 48, 0.9);
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-teal-primary);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: transparent;
+            color: var(--color-silver);
+            border: none;
+            border-right: 1px solid rgba(0, 212, 255, 0.3);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .lang-btn:last-child {
+            border-right: none;
+        }
+
+        .lang-btn.active {
+            background: var(--color-teal-primary);
+            color: var(--color-space-dark);
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 11, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-teal-primary);
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-teal-primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--color-teal-primary), var(--color-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--color-silver-dark);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: var(--spacing-md) var(--spacing-2xl);
+            border: 2px solid var(--color-teal-primary);
+            background: transparent;
+            color: var(--color-teal-primary);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-teal-primary);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            color: var(--color-space-dark);
+        }
+
+        .btn-secondary {
+            border-color: var(--color-silver-dark);
+            color: var(--color-silver-dark);
+        }
+
+        .btn-secondary::before {
+            background: var(--color-silver-dark);
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-2xl);
+            color: var(--color-teal-primary);
+            position: relative;
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-teal-primary), transparent);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .project-card {
+            background: var(--color-surface-light);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-teal-primary), var(--color-accent-gold));
+        }
+
+        .project-card:hover {
+            border-color: var(--color-teal-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .project-type {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--color-teal-primary);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 0.3rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-silver);
+        }
+
+        .project-date {
+            color: var(--color-silver-dark);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--color-silver-dark);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .skill-category {
+            background: var(--color-surface-light);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: var(--spacing-xl);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--color-teal-primary);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--color-teal-primary);
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.1rem;
+        }
+
+        .skill-item {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(232, 232, 232, 0.1);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .skill-item h4 {
+            color: var(--color-silver);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .skill-item p {
+            color: var(--color-silver-dark);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(0, 212, 255, 0.3);
+        }
+
+        .timeline-item {
+            margin-bottom: var(--spacing-2xl);
+            width: 48%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 52%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            background: var(--color-teal-primary);
+            border-radius: 50%;
+            margin-top: var(--spacing-md);
+        }
+
+        .timeline-content {
+            background: var(--color-surface-light);
+            padding: var(--spacing-lg);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: var(--color-teal-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .timeline-content p {
+            margin: var(--spacing-sm) 0;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .contact-card {
+            background: var(--color-surface-light);
+            padding: var(--spacing-lg);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            border-color: var(--color-teal-primary);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .contact-card h4 {
+            color: var(--color-teal-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-card a {
+            color: var(--color-silver);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-card a:hover {
+            color: var(--color-teal-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(5, 11, 20, 0.8);
+            padding: var(--spacing-2xl) 0;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        /* Hidden Content Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                gap: var(--spacing-lg);
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 0 !important;
+                text-align: left;
+                padding-left: var(--spacing-xl);
+                position: relative;
+            }
+
+            .timeline-item::before {
+                left: 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .lang-toggle {
+                top: var(--spacing-lg);
+                right: var(--spacing-lg);
+            }
+
+            nav {
+                padding: var(--spacing-md) var(--spacing-lg);
+            }
+
+            .hero {
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(5, 11, 20, 0.95);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%);
+            margin: 3% auto;
+            padding: 0;
+            border: 1px solid var(--color-teal-primary);
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 10px 50px rgba(0, 212, 255, 0.3);
+            animation: slideDown 0.4s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            color: var(--color-silver);
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: var(--color-teal-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem 3rem 3rem 3rem;
+            clear: both;
+        }
+
+        .modal-body h2 {
+            color: var(--color-teal-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-teal-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--color-silver-dark);
+        }
+
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-body > div {
+            margin-bottom: 2rem;
+        }
+
+        #modal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-silver);
+        }
+
+        .modal-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .modal-media img,
+        .modal-media video {
+            width: 100%;
+            border-radius: 0.5rem;
+            border: 2px solid var(--color-teal-primary);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .modal-media img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .modal-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .modal-technologies h3 {
+            width: 100%;
+            color: var(--color-teal-light);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--color-teal-primary);
+            color: var(--color-teal-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-badge:hover {
+            background: var(--color-teal-primary);
+            color: var(--color-space-dark);
+            transform: translateY(-2px);
+        }
+
+        .modal-code-section h3 {
+            color: var(--color-teal-light);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-code-section pre {
+            background: var(--color-space-darker);
+            border: 1px solid var(--color-teal-primary);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .modal-code-section code {
+            color: var(--color-teal-light);
+        }
+
+        .modal-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .modal-links h3 {
+            width: 100%;
+            color: var(--color-teal-light);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-teal-primary);
+            color: var(--color-space-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--color-teal-primary);
+        }
+
+        .modal-link-btn:hover {
+            background: transparent;
+            color: var(--color-teal-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .modal-link-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Make project cards clickable */
+        .project-card {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card::after {
+            content: '→ View Details';
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            color: var(--color-teal-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-body h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-media {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-links {
+                flex-direction: column;
+            }
+        }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Aeronautical Engineering Student Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
+                <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
+                <li><a href="#education" data-en="Education" data-fr="Formation">Education</a></li>
+                <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-en="Ahmed Abderrahmene Isli" data-fr="Ahmed Abderrahmene Isli">Ahmed Abderrahmene Isli</h1>
+            <p class="subtitle" data-en="Aeronautical Engineer • Flight Control Systems • Machine Learning" data-fr="Ingénieur Aéronautique • Systèmes de Contrôle de Vol • Apprentissage Automatique">Aerospace Engineer • Flight Control Systems • Machine Learning</p>
+            <div class="cta-buttons">
+                <button class="btn" onclick="document.getElementById('contact').scrollIntoView()" data-en="Get In Touch" data-fr="Me Contacter">Get In Touch</button>
+                <button class="btn btn-secondary" data-en="View Resume" data-fr="Voir mon CV">View Resume</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title" data-en="Featured Projects" data-fr="Projets en vedette">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="project-type" data-en="Simulation" data-fr="Simulation">Simulation</span>
+                <h3 data-en="3D Flight Simulator with Atmospheric Model" data-fr="Simulateur de Vol 3D avec Modèle Atmosphérique">3D Flight Simulator with Atmospheric Model</h3>
+                <p class="project-date" data-en="February 2024 - Present" data-fr="Février 2024 - Présent">February 2024 - Present</p>
+                <p data-en="Developed a realistic 3D flight simulator integrating comprehensive atmospheric and wind models. The simulator allows testing and adjustment of aerodynamic parameters and the developement of an autopilot and gains tuning in futur." data-fr="Développé un simulateur de vol 3D réaliste intégrant des modèles atmosphériques et éoliens complets. Le simulateur permet de tester et d'ajuster les paramètres aérodynamiques et déveloper un pilote automatique dans le future.">Developed a realistic 3D flight simulator integrating comprehensive atmospheric and wind models. The simulator allows testing and adjustment of aerodynamic parameters the developement of an autopilot and gains tuning in futur.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-type" data-en="Hardware/Software" data-fr="Matériel/Logiciel">Hardware/Software</span>
+                <h3 data-en="Scientific Rocket Avionics & Ground Station" data-fr="Avionique de Fusée Scientifique et Station Sol">Scientific Rocket Avionics & Ground Station</h3>
+                <p class="project-date" data-en="September 2024 - June 2025" data-fr="Septembre 2024 - Juin 2025">September 2024 - June 2025</p>
+                <p data-en="Designed and developed onboard flight computer software and ground control station for a competitive scientific rocket. Implemented C++ embedded systems for rocket telemetry and Python/C++ ground station." data-fr="Conçu et développé le logiciel de l'ordinateur de bord et la station de contrôle au sol pour une fusée scientifique compétitive. Implémenté des systèmes embarqués C++ pour la télémétrie et la station sol.">Designed and developed onboard flight computer software and ground control station for a competitive scientific rocket. Implemented C++ embedded systems for rocket telemetry and Python/C++ ground station.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-type" data-en="Machine Learning" data-fr="Apprentissage Automatique">Machine Learning</span>
+                <h3 data-en="Airline Sentiment Analysis - NLP Model" data-fr="Analyse de Sentiment Aérien - Modèle NLP">Airline Sentiment Analysis - NLP Model</h3>
+                <p class="project-date" data-en="August 2025" data-fr="Août 2025">August 2025</p>
+                <p data-en="Built an AI-powered NLP model to automatically classify airline customer reviews and identify satisfaction trends. Implemented text preprocessing, feature engineering, and sentiment classification." data-fr="Construit un modèle NLP alimenté par l'IA pour classifier automatiquement les avis des clients et identifier les tendances de satisfaction. Implémenté le prétraitement du texte et la classification des sentiments.">Built an AI-powered NLP model to automatically classify airline customer reviews and identify satisfaction trends. Implemented text preprocessing, feature engineering, and sentiment classification.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-type" data-en="Machine Learning" data-fr="Apprentissage Automatique">Machine Learning</span>
+                <h3 data-en="Airfoil Noise Prediction with ML" data-fr="Prédiction du Bruit de Profil Aérodynamique">Airfoil Noise Prediction with ML</h3>
+                <p class="project-date" data-en="December 2025" data-fr="Décembre 2025">December 2025</p>
+                <p data-en="Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset." data-fr="Développé un modèle d'apprentissage automatique pour prédire les niveaux de pression acoustique à partir de données aéroacoustiques sur un ensemble de données de 1052 échantillons.">Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title" data-en="Technical Skills" data-fr="Compétences Techniques">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 data-en="Programming Languages" data-fr="Langages de Programmation">Programming Languages</h3>
+                <div class="skill-item">
+                    <h4>🐍 Python</h4>
+                    <p data-en="Advanced proficiency - ML, data science, simulation" data-fr="Maîtrise avancée - ML, science des données, simulation">Advanced proficiency - ML, data science, simulation</p>
+                </div>
+                <div class="skill-item">
+                    <h4>C++</h4>
+                    <p data-en="Basics - Embedded systems, rocket avionics" data-fr="Basique - Systèmes embarqués, avionique de fusée">Basics - Embedded systems, rocket avionics</p>
+                </div>
+                <div class="skill-item">
+                    <h4>MATLAB/Simulink</h4>
+                    <p data-en="Intermediate - Control systems, flight dynamics" data-fr="Intermédiaire - Systèmes de contrôle, dynamique de vol">Intermediate - Control systems, flight dynamics</p>
+                </div>
+                <div class="skill-item">
+                    <h4>SQL & Databases</h4>
+                    <p data-en="Intermediate - Data management, optimization" data-fr="Intermédiaire - Gestion des données, optimisation">Intermediate - Data management, optimization</p>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 data-en="Tools & Frameworks" data-fr="Outils et Frameworks">Tools & Frameworks</h3>
+                <div class="skill-item">
+                    <h4>📊 Data Science</h4>
+                    <p data-en="NumPy, Pandas, SciPy, Scikit-learn" data-fr="NumPy, Pandas, SciPy, Scikit-learn">NumPy, Pandas, SciPy, Scikit-learn</p>
+                </div>
+                <div class="skill-item">
+                    <h4>📈 Visualization</h4>
+                    <p data-en="Matplotlib, Seaborn for analysis" data-fr="Matplotlib, Seaborn pour l'analyse">Matplotlib, Seaborn for analysis</p>
+                </div>
+                <div class="skill-item">
+                    <h4>⚙️ CAD Software</h4>
+                    <p data-en="CATIA V5, SolidWorks" data-fr="CATIA V5, SolidWorks">CATIA V5, SolidWorks</p>
+                </div>
+                <div class="skill-item">
+                    <h4>🎛️ Engineering</h4>
+                    <p data-en="Flight dynamics, aerodynamic analysis, 3D Modeling, Materials Science and Scientific programming" data-fr="Dynamique de vol, analyse aérodynamique, Modélisation 3D, Science des matériaux et Programmation scientifique">Flight dynamics, aerodynamic analysis, 3D Modeling, Materials Science and Scientific programming</p>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 data-en="Languages" data-fr="Langues">Languages</h3>
+                <div class="skill-item">
+                    <h4>🇸🇦 Arabic</h4>
+                    <p data-en="Native Speaker" data-fr="Locuteur Natif">Native Speaker</p>
+                </div>
+                <div class="skill-item">
+                    <h4>🇫🇷 French</h4>
+                    <p data-en="Advanced / Fluent (C1)" data-fr="Avancé / Courant (C1)">Advanced / Fluent (C1)</p>
+                </div>
+                <div class="skill-item">
+                    <h4>🇬🇧 English</h4>
+                    <p data-en="Advanced / Fluent (B2)" data-fr="Avancé / Courant (B2)">Advanced / Fluent (B2)</p>
+                </div>
+                <div class="skill-item">
+                    <h4>🇪🇸 Spanish</h4>
+                    <p data-en="Beginner (Learning)" data-fr="Débutant (En apprentissage)">Beginner (Learning)</p>
+                </div>
+                <div class="skill-item">
+                    <h4>🇩🇪 German</h4>
+                    <p data-en="Beginner (Learning)" data-fr="Débutant (En apprentissage)">Beginner (Learning)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience Section -->
+    <section id="education" class="container">
+        <h2 class="section-title" data-en="Education & Experience" data-fr="Formation & Expérience">Education & Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-en="License - Aeronautical & Mechanical Engineering" data-fr="Licence - Ingénierie Mécanique en Aéronautique">License - Aeronautical & Mechanical Engineering</h3>
+                    <p><strong data-en="University of Toulouse, France" data-fr="Université de Toulouse, France">University of Toulouse, France</strong></p>
+                    <p data-en="Current: September 2025 - June 2027" data-fr="Actuel: Septembre 2025 - Juin 2027">Current: September 2025 - June 2027</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-en="License - Mechanical Engineering (Aeronautical)" data-fr="Licence - Ingénierie Mécanique (Aéronautique)">License - Mechanical Engineering (Aeronautical)</h3>
+                    <p><strong data-en="Algeria" data-fr="Algérie">Algeria</strong></p>
+                    <p data-en="September 2021 - June 2025" data-fr="Septembre 2021 - Juin 2025">September 2021 - June 2025</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-en="Data Science & ML Certification" data-fr="Certification en Science des Données et ML">Data Science & ML Certification</h3>
+                    <p><strong data-en="Udemy" data-fr="Udemy">Udemy</strong></p>
+                    <p data-en="August 2023 - November 2025" data-fr="Août 2023 - Novembre 2025">August 2023 - Novembre 2025</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 data-en="Baccalaureat - Experimentales Sciences" data-fr="Baccalauréat - Sciences Expérimentales">Baccalaureat - Experimentales Sciences</h3>
+                    <p><strong data-en="Distinction: Very Good (16.75/20)" data-fr="Distinction: Très Bien (16.75/20)">Distinction: Very Good (16.75/20)</strong></p>
+                    <p data-en="July 2021" data-fr="Juillet 2021">July 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title" data-en="Get In Touch" data-fr="Me Contacter">Get In Touch</h2>
+        <p style="text-align: center; margin-bottom: var(--spacing-2xl); color: var(--color-silver-dark);" data-en="I'm actively seeking internship and alternance opportunities in aerospace engineering. Feel free to reach out!" data-fr="Je recherche activement des opportunités de stage et d'alternance en ingénierie aérospatiale. N'hésitez pas à me contacter!">I'm actively seeking internship and alternance opportunities in aerospace engineering. Feel free to reach out!</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4>📧 Email</h4>
+                <a href="mailto:abdoustudyaero@gmail.com">abdoustudyaero@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h4>📱 Phone</h4>
+                <a href="tel:+33776495467">+33-7-76-49-54-67</a>
+            </div>
+            <div class="contact-card">
+                <h4>🔗 LinkedIn</h4>
+                <a href="https://linkedin.com/in/abderrahmene-isli" target="_blank" rel="noopener noreferrer">View Profile</a>
+            </div>
+            <div class="contact-card">
+                <h4>📍 Location</h4>
+                <p data-en="Toulouse, France" data-fr="Toulouse, France">Toulouse, France</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p data-en="© 2026 Abderrahmene Isli." data-fr="© 2026 Abderrahmene Isli.">© 2026 Abderrahmene Isli.</p>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const contentElements = document.querySelectorAll('[data-en]');
+        
+        let currentLang = 'en';
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                currentLang = lang;
+
+                // Update active button
+                langBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update all content
+                contentElements.forEach(elem => {
+                    if (lang === 'en') {
+                        elem.textContent = elem.dataset.en;
+                    } else if (lang === 'fr') {
+                        elem.textContent = elem.dataset.fr;
+                    }
+                });
+
+                // Store preference
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        if (savedLang !== 'en') {
+            document.querySelector(`[data-lang="${savedLang}"]`).click();
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <div class="modal-meta">
+                    <span id="modal-date"></span>
+                    <span id="modal-type"></span>
+                </div>
+
+                <div id="modal-description"></div>
+
+                <!-- Media Section -->
+                <div id="modal-media" class="modal-media"></div>
+
+                <!-- Technologies -->
+                <div id="modal-technologies" class="modal-technologies"></div>
+
+                <!-- Code Snippet -->
+                <div id="modal-code" class="modal-code-section"></div>
+
+                <!-- Links -->
+                <div id="modal-links" class="modal-links"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+// Project data with details
+const projectsData = {
+    'flight-simulator': {
+        title: {
+            en: '3D Flight Simulator with Atmospheric Model',
+            fr: 'Simulateur de Vol 3D avec Modèle Atmosphérique'
+        },
+        type: {
+            en: 'Simulation',
+            fr: 'Simulation'
+        },
+        date: {
+            en: 'February 2024 - Present',
+            fr: 'Février 2024 - Présent'
+        },
+        description: {
+            en: 'Developed a comprehensive 3D flight simulator with realistic atmospheric modeling, wind effects, and aerodynamic parameter testing. The simulator features advanced physics calculations, real-time flight dynamics visualization, and serves as a platform for autopilot development and PID gain tuning. Implements ISA atmosphere model, turbulence effects, and customizable aircraft parameters.',
+            fr: 'Développé un simulateur de vol 3D complet avec modélisation atmosphérique réaliste, effets de vent et tests de paramètres aérodynamiques. Le simulateur comprend des calculs physiques avancés, une visualisation de la dynamique de vol en temps réel et sert de plateforme pour le développement d autopilote et le réglage des gains PID.'
+        },
+        technologies: ['Python', 'Pygame', 'NumPy', 'Flight Dynamics', 'Control Systems', 'Atmospheric Modeling'],
+        images: [
+            // Add your image URLs here
+             'mavsim1.png',
+            // 'path/to/simulator-screenshot2.jpg'
+        ],
+        videos: [
+            // Add your video URLs here
+             'mavsim.mp4'
+        ],
+        code: `# Flight Simulator - Atmospheric Model Example
+import numpy as np
+
+class AtmosphereModel:
+    def __init__(self):
+        self.T0 = 288.15  # K
+        self.p0 = 101325  # Pa
+        self.rho0 = 1.225 # kg/m³
+
+    def get_conditions(self, altitude):
+        """Calculate ISA atmosphere conditions"""
+        if altitude < 11000:
+            T = self.T0 - 0.0065 * altitude
+            p = self.p0 * (T/self.T0)**5.2561
+        else:
+            T = 216.65
+            p = 22632 * np.exp(-0.000157 * (altitude - 11000))
+
+        rho = p / (287 * T)
+        return T, p, rho`,
+        links: [
+            {
+                text: 'GitHub Repository',
+                url: 'https://github.com/Mamanouu/Small-unmanned-aircraft-theory-and-practice/tree/main',
+                icon: 'github'
+            },
+            {
+                text: 'Live Demo',
+                url: '#',
+                icon: 'external'
+            }
+        ]
+    },
+    'rocket-avionics': {
+        title: {
+            en: 'Competition Rocket Avionics System',
+            fr: 'Système Avionique pour Fusée de Compétition'
+        },
+        type: {
+            en: 'Hardware/Software',
+            fr: 'Matériel/Logiciel'
+        },
+        date: {
+            en: 'September 2024 - June 2025',
+            fr: 'Septembre 2024 - Juin 2025'
+        },
+        description: {
+            en: 'Designed and implemented a complete avionics system for a competitive scientific rocket including onboard flight computer software in C++ and ground control station. Developed embedded systems for telemetry data acquisition, real-time sensor processing, flight state estimation, and wireless communication. Created Python/C++ ground station software for mission monitoring and data visualization.',
+            fr: 'Conçu et mis en œuvre un système avionique complet pour une fusée scientifique de compétition comprenant un logiciel embarqué en C++ et une station de contrôle au sol. Développé des systèmes embarqués pour l acquisition de données de télémétrie, le traitement en temps réel des capteurs et la communication sans fil.'
+        },
+        technologies: ['C++', 'Python', 'Embedded Systems', 'Telemetry', 'IMU', 'GPS', 'Real-time Systems'],
+        images: [],
+        videos: [],
+        code: `// Rocket Telemetry System - C++ Example
+class TelemetrySystem {
+private:
+    IMU imu;
+    GPS gps;
+    Barometer baro;
+
+public:
+    struct FlightData {
+        float altitude;
+        float velocity;
+        float acceleration[3];
+        float attitude[3];
+    };
+
+    FlightData getFlightData() {
+        FlightData data;
+        data.altitude = baro.readAltitude();
+        imu.readAcceleration(data.acceleration);
+        imu.readAttitude(data.attitude);
+        // Calculate velocity from integration
+        return data;
+    }
+};`,
+        links: [
+            {
+                text: 'GitHub Repository',
+                url: 'https://github.com/yourusername/rocket-avionics',
+                icon: 'github'
+            }
+        ]
+    },
+    'nlp-reviews': {
+        title: {
+            en: 'AI-Powered Airline Review Classifier',
+            fr: 'Classificateur d Avis de Compagnies Aériennes par IA'
+        },
+        type: {
+            en: 'Machine Learning',
+            fr: 'Apprentissage Automatique'
+        },
+        date: {
+            en: 'August 2025',
+            fr: 'Août 2025'
+        },
+        description: {
+            en: 'Built an NLP-powered model to automatically classify airline customer reviews and identify satisfaction trends. Implemented comprehensive text preprocessing pipeline, advanced feature engineering using TF-IDF and word embeddings, and multi-class sentiment classification. Achieved high accuracy in predicting customer satisfaction levels and extracting key complaint themes.',
+            fr: 'Construit un modèle NLP pour classifier automatiquement les avis clients des compagnies aériennes. Mis en œuvre un pipeline de prétraitement de texte complet, ingénierie de caractéristiques avancée et classification de sentiments multi-classes.'
+        },
+        technologies: ['Python', 'NLP', 'Scikit-learn', 'NLTK', 'Pandas', 'TF-IDF', 'Word Embeddings'],
+        images: [],
+        videos: [],
+        code: `# NLP Review Classifier - Feature Extraction
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier
+import nltk
+
+class ReviewClassifier:
+    def __init__(self):
+        self.vectorizer = TfidfVectorizer(
+            max_features=5000,
+            ngram_range=(1, 2),
+            stop_words='english'
+        )
+        self.classifier = RandomForestClassifier(
+            n_estimators=100
+        )
+
+    def preprocess(self, text):
+        tokens = nltk.word_tokenize(text.lower())
+        return ' '.join(tokens)`,
+        links: [
+            {
+                text: 'GitHub Repository',
+                url: 'https://github.com/yourusername/airline-reviews-nlp',
+                icon: 'github'
+            },
+            {
+                text: 'Kaggle Dataset',
+                url: 'https://www.kaggle.com/',
+                icon: 'external'
+            }
+        ]
+    },
+    'airfoil-noise': {
+        title: {
+            en: 'Airfoil Self-Noise Prediction',
+            fr: 'Prédiction du Bruit Auto-généré des Profils Aérodynamiques'
+        },
+        type: {
+            en: 'Machine Learning',
+            fr: 'Apprentissage Automatique'
+        },
+        date: {
+            en: 'December 2025',
+            fr: 'Décembre 2025'
+        },
+        description: {
+            en: 'Developed machine learning models to predict scaled sound pressure levels from aeroacoustic data on a 1052-sample dataset. Implemented multiple regression algorithms including Random Forest, Gradient Boosting, and Neural Networks. Performed extensive feature engineering and hyperparameter optimization to achieve high prediction accuracy for noise levels based on airfoil geometry and flow conditions.',
+            fr: 'Développé des modèles d apprentissage automatique pour prédire les niveaux de pression acoustique à partir de données aéroacoustiques sur un ensemble de 1052 échantillons. Mis en œuvre plusieurs algorithmes de régression et optimisation des hyperparamètres.'
+        },
+        technologies: ['Python', 'Scikit-learn', 'Pandas', 'Matplotlib', 'Regression', 'Feature Engineering'],
+        images: [],
+        videos: [],
+        code: `# Airfoil Noise Prediction Model
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.preprocessing import StandardScaler
+
+# Load aeroacoustic dataset
+# Features: frequency, angle of attack, chord length, 
+#           free-stream velocity, displacement thickness
+
+X_train, X_test, y_train, y_test = load_data()
+
+# Feature scaling
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Train model
+model = GradientBoostingRegressor(
+    n_estimators=200,
+    max_depth=5,
+    learning_rate=0.1
+)
+model.fit(X_train_scaled, y_train)
+
+# Predict sound pressure level
+predictions = model.predict(X_test_scaled)`,
+        links: [
+            {
+                text: 'GitHub Repository',
+                url: 'https://github.com/yourusername/airfoil-noise-prediction',
+                icon: 'github'
+            },
+            {
+                text: 'UCI Dataset',
+                url: 'https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise',
+                icon: 'external'
+            }
+        ]
+    }
+};
+
+// Modal functionality
+const modal = document.getElementById('projectModal');
+const modalClose = document.querySelector('.modal-close');
+
+// Get current language
+function getCurrentLanguage() {
+    return document.documentElement.getAttribute('data-lang') || 'en';
+}
+
+// Open modal with project details
+function openProjectModal(projectId) {
+    const project = projectsData[projectId];
+    if (!project) return;
+
+    const lang = getCurrentLanguage();
+
+    // Set title
+    document.getElementById('modal-title').textContent = project.title[lang];
+
+    // Set meta information
+    document.getElementById('modal-date').innerHTML = `<strong>📅</strong> ${project.date[lang]}`;
+    document.getElementById('modal-type').innerHTML = `<strong>🏷️</strong> ${project.type[lang]}`;
+
+    // Set description
+    document.getElementById('modal-description').innerHTML = `<p>${project.description[lang]}</p>`;
+
+    // Add media (images and videos)
+    const mediaContainer = document.getElementById('modal-media');
+    mediaContainer.innerHTML = '';
+
+    if (project.images && project.images.length > 0) {
+        project.images.forEach(img => {
+            mediaContainer.innerHTML += `<img src="${img}" alt="Project screenshot">`;
+        });
+    }
+
+    if (project.videos && project.videos.length > 0) {
+        project.videos.forEach(video => {
+            mediaContainer.innerHTML += `<video controls src="${video}"></video>`;
+        });
+    }
+
+    if ((project.images && project.images.length === 0) && (project.videos && project.videos.length === 0)) {
+        mediaContainer.style.display = 'none';
+    } else {
+        mediaContainer.style.display = 'grid';
+    }
+
+    // Add technologies
+    const techContainer = document.getElementById('modal-technologies');
+    if (project.technologies && project.technologies.length > 0) {
+        techContainer.innerHTML = `<h3>${lang === 'en' ? 'Technologies Used' : 'Technologies Utilisées'}</h3>`;
+        project.technologies.forEach(tech => {
+            techContainer.innerHTML += `<span class="tech-badge">${tech}</span>`;
+        });
+        techContainer.style.display = 'flex';
+    } else {
+        techContainer.style.display = 'none';
+    }
+
+    // Add code snippet
+    const codeContainer = document.getElementById('modal-code');
+    if (project.code) {
+        codeContainer.innerHTML = `
+            <h3>${lang === 'en' ? 'Code Example' : 'Exemple de Code'}</h3>
+            <pre><code>${escapeHtml(project.code)}</code></pre>
+        `;
+        codeContainer.style.display = 'block';
+    } else {
+        codeContainer.style.display = 'none';
+    }
+
+    // Add links
+    const linksContainer = document.getElementById('modal-links');
+    if (project.links && project.links.length > 0) {
+        linksContainer.innerHTML = `<h3>${lang === 'en' ? 'Project Links' : 'Liens du Projet'}</h3>`;
+        project.links.forEach(link => {
+            const icon = link.icon === 'github' ? 
+                '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>' :
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>';
+
+            linksContainer.innerHTML += `
+                <a href="${link.url}" class="modal-link-btn" target="_blank" rel="noopener">
+                    ${icon}
+                    ${link.text}
+                </a>
+            `;
+        });
+        linksContainer.style.display = 'flex';
+    } else {
+        linksContainer.style.display = 'none';
+    }
+
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Helper function to escape HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Close modal
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners
+modalClose.addEventListener('click', closeModal);
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+    }
+});
+
+// Add click events to project cards
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectIds = ['flight-simulator', 'rocket-avionics', 'nlp-reviews', 'airfoil-noise'];
+
+    projectCards.forEach((card, index) => {
+        if (projectIds[index]) {
+            card.addEventListener('click', () => {
+                openProjectModal(projectIds[index]);
+            });
+
+            // Add keyboard accessibility
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openProjectModal(projectIds[index]);
+                }
+            });
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
