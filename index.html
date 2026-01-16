@@ -869,13 +869,6 @@
 
             <div class="project-card">
                 <span class="project-type" data-en="Machine Learning" data-fr="Apprentissage Automatique">Machine Learning</span>
-                <h3 data-en="Airline Sentiment Analysis - NLP Model" data-fr="Analyse de Sentiment Aérien - Modèle NLP">Airline Sentiment Analysis - NLP Model</h3>
-                <p class="project-date" data-en="August 2025" data-fr="Août 2025">August 2025</p>
-                <p data-en="Built an AI-powered NLP model to automatically classify airline customer reviews and identify satisfaction trends. Implemented text preprocessing, feature engineering, and sentiment classification." data-fr="Construit un modèle NLP alimenté par l'IA pour classifier automatiquement les avis des clients et identifier les tendances de satisfaction. Implémenté le prétraitement du texte et la classification des sentiments.">Built an AI-powered NLP model to automatically classify airline customer reviews and identify satisfaction trends. Implemented text preprocessing, feature engineering, and sentiment classification.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="project-type" data-en="Machine Learning" data-fr="Apprentissage Automatique">Machine Learning</span>
                 <h3 data-en="Airfoil Noise Prediction with ML" data-fr="Prédiction du Bruit de Profil Aérodynamique">Airfoil Noise Prediction with ML</h3>
                 <p class="project-date" data-en="December 2025" data-fr="Décembre 2025">December 2025</p>
                 <p data-en="Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset." data-fr="Développé un modèle d'apprentissage automatique pour prédire les niveaux de pression acoustique à partir de données aéroacoustiques sur un ensemble de données de 1052 échantillons.">Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset.</p>
@@ -1182,40 +1175,6 @@ const projectsData = {
             }
         ]
     },
-    'nlp-reviews': {
-        title: {
-            en: 'AI-Powered Airline Review Classifier',
-            fr: 'Classificateur d Avis de Compagnies Aériennes par IA'
-        },
-        type: {
-            en: 'Machine Learning',
-            fr: 'Apprentissage Automatique'
-        },
-        date: {
-            en: 'August 2025',
-            fr: 'Août 2025'
-        },
-        description: {
-            en: 'Built an NLP-powered model to automatically classify airline customer reviews and identify satisfaction trends. Implemented comprehensive text preprocessing pipeline, advanced feature engineering using TF-IDF and word embeddings, and multi-class sentiment classification. Achieved high accuracy in predicting customer satisfaction levels and extracting key complaint themes.',
-            fr: 'Construit un modèle NLP pour classifier automatiquement les avis clients des compagnies aériennes. Mis en œuvre un pipeline de prétraitement de texte complet, ingénierie de caractéristiques avancée et classification de sentiments multi-classes.'
-        },
-        technologies: ['Python', 'NLP', 'Scikit-learn', 'Pandas', 'TF-IDF', 'Word Embeddings'],
-        images: [],
-        videos: [],
-        code: '',
-        links: [
-            {
-                text: 'GitHub Repository',
-                url: 'https://github.com/yourusername/airline-reviews-nlp',
-                icon: 'github'
-            },
-            {
-                text: 'Kaggle Dataset',
-                url: 'https://www.kaggle.com/',
-                icon: 'external'
-            }
-        ]
-    },
     'airfoil-noise': {
         title: {
             en: 'Airfoil Self-Noise Prediction',
@@ -1382,7 +1341,7 @@ document.addEventListener('keydown', (e) => {
 // Add click events to project cards
 document.addEventListener('DOMContentLoaded', () => {
     const projectCards = document.querySelectorAll('.project-card');
-    const projectIds = ['flight-simulator', 'rocket-avionics', 'nlp-reviews', 'airfoil-noise'];
+    const projectIds = ['flight-simulator', 'rocket-avionics', 'airfoil-noise'];
 
     projectCards.forEach((card, index) => {
         if (projectIds[index]) {
