@@ -840,7 +840,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 data-en="Ahmed Abderrahmene Isli" data-fr="Ahmed Abderrahmene Isli">Ahmed Abderrahmene Isli</h1>
-            <p class="subtitle" data-en="Aeronautical Engineer • Flight Control Systems • Machine Learning" data-fr="Ingénieur Aéronautique • Systèmes de Contrôle de Vol • Apprentissage Automatique">Aerospace Engineer • Flight Control Systems • Machine Learning</p>
+            <p class="subtitle" data-en="Aeronautical Engineering Student • Flight Control Systems • Machine Learning" data-fr="Etudiant Ingénierie Aéronautique • Systèmes de Contrôle de Vol • Apprentissage Automatique">Aeronautical Engineering Student • Flight Control Systems • Machine Learning</p>
             <div class="cta-buttons">
                 <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" data-en="View Projects" data-fr="Voir les Projets">View Projects</button>
                 <button class="btn btn-secondary" onclick="openCV()" data-en="View Resume" data-fr="Voir mon CV">View Resume</button>
@@ -872,6 +872,13 @@
                 <h3 data-en="Airfoil Noise Prediction with ML" data-fr="Prédiction du Bruit de Profil Aérodynamique">Airfoil Noise Prediction with ML</h3>
                 <p class="project-date" data-en="December 2025" data-fr="Décembre 2025">December 2025</p>
                 <p data-en="Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset." data-fr="Développé un modèle d'apprentissage automatique pour prédire les niveaux de pression acoustique à partir de données aéroacoustiques sur un ensemble de données de 1052 échantillons.">Developed machine learning model to predict scaled sound pressure levels from aeroacoustic data on 1052-sample dataset.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-type" data-en="CAD" data-fr="CAO">CAD</span>
+                <h3 data-en="Computer Aided Design & Reverse Engineering" data-fr="Conception Assistée Par Ordinateur et Rétro-ingénierie">Computer Aided Design & Reverse Engineering</h3>
+                <p class="project-date" data-en="September 2024" data-fr="Septembre 2024">September 2024</p>
+                <p data-en="Conception and Design of mechanical parts and reverse engineering aircrafts and drones from photos." data-fr="Conception et dessin de pièces mécaniques, rétro-ingénierie d'aéronefs et de drones à partir de photos.">Conception and Design of mechanical parts and reverse engineering aircrafts and drones from photos.</p>
             </div>
         </div>
     </section>
@@ -920,7 +927,7 @@
                 </div>
                 <div class="skill-item">
                     <h4>🎛️ Engineering</h4>
-                    <p data-en="Flight dynamics, aerodynamic analysis, 3D Modeling, Materials Science and Scientific programming" data-fr="Dynamique de vol, analyse aérodynamique, Modélisation 3D, Science des matériaux et Programmation scientifique">Flight dynamics, aerodynamic analysis, 3D Modeling, Materials Science and Scientific programming</p>
+                    <p data-en="Flight dynamics, aerodynamic analysis, 3D Modeling & Reverse Engineering, Materials Science and Scientific programming" data-fr="Dynamique de vol, analyse aérodynamique, Modélisation 3D et rétro-ingénierie, Science des matériaux et Programmation scientifique">Flight dynamics, aerodynamic analysis, 3D Modeling & reverse engineering, Materials Science and Scientific programming</p>
                 </div>
             </div>
 
@@ -1165,7 +1172,7 @@ const projectsData = {
                  'GCS GUI.png',
                  'GCS GUI2.png'
         ],
-        videos: ['GCS.mp4'],
+        videos: ['GCS.mp4','imu.MOV'],
         code:'',
         links: [
             {
@@ -1206,6 +1213,40 @@ const projectsData = {
                 text: 'UCI Dataset',
                 url: 'https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise',
                 icon: 'external'
+            }
+        ]
+    },
+    'Reverse Engineering and 3D modeling': {
+        title: {
+            en: 'Computer Aided Design & reverse engineering',
+            fr: 'Conception Assistée par Ordinateur et rétro-ingénierie'
+        },
+        type: {
+            en: 'CAD',
+            fr: 'CAO'
+        },
+        date: {
+            en: 'September 2024',
+            fr: 'Septembre 2024'
+        },
+        description: {
+            en: 'Conception and Design of mechanical parts and reverse engineering aircrafts and drones from photos.',
+            fr: "Conception et dessin de pièces mécaniques, rétro-ingénierie d'aéronefs et de drones à partir de photos."
+        },
+        technologies: ['CAD', 'Solidworks', 'CATIA V5'],
+        images: ['shahid1.png', 'Shahid2.png', 'Bielle.png', 'Arbre.png'],
+        videos: ["Cessna.mp4"],
+        code: ``,
+        links: [
+            {
+                text: '',
+                url: '',
+                icon: ''
+            },
+            {
+                text: '',
+                url: '',
+                icon: ''
             }
         ]
     }
@@ -1341,7 +1382,7 @@ document.addEventListener('keydown', (e) => {
 // Add click events to project cards
 document.addEventListener('DOMContentLoaded', () => {
     const projectCards = document.querySelectorAll('.project-card');
-    const projectIds = ['flight-simulator', 'rocket-avionics', 'airfoil-noise'];
+    const projectIds = ['flight-simulator', 'rocket-avionics', 'airfoil-noise', 'Reverse Engineering and 3D modeling'];
 
     projectCards.forEach((card, index) => {
         if (projectIds[index]) {
