@@ -814,7 +814,332 @@
                 flex-direction: column;
             }
         }
-</style>
+
+        /* ==================== MOBILE RESPONSIVENESS ==================== */
+
+        /* Tablet & Mobile: 768px and below */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xl: 1rem;
+                --spacing-2xl: 1.5rem;
+            }
+
+            /* Navigation */
+            nav {
+                padding: var(--spacing-md) var(--spacing-lg);
+                height: auto;
+            }
+
+            .nav-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-md);
+                width: 100%;
+                justify-content: center;
+                margin-top: var(--spacing-md);
+                font-size: 0.875rem;
+            }
+
+            /* Language Toggle */
+            .lang-toggle {
+                top: var(--spacing-lg);
+                right: var(--spacing-lg);
+                font-size: 0.75rem;
+            }
+
+            .lang-btn {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.75rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-lg);
+                min-height: auto;
+            }
+
+            .hero-content {
+                margin-top: var(--spacing-xl);
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                margin-top: var(--spacing-lg);
+            }
+
+            .btn {
+                width: 100%;
+                padding: var(--spacing-lg);
+                font-size: 0.95rem;
+            }
+
+            /* Container & Sections */
+            .container {
+                padding: var(--spacing-lg);
+                margin: var(--spacing-lg) 0;
+            }
+
+            section {
+                padding: var(--spacing-xl) var(--spacing-lg) !important;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            /* Experience Grid */
+            .experience-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--spacing-lg);
+            }
+
+            .experience-card {
+                padding: var(--spacing-lg);
+            }
+
+            .experience-card h3 {
+                font-size: 1.25rem;
+            }
+
+            /* Skills Section */
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--spacing-md);
+            }
+
+            .skill-category {
+                padding: var(--spacing-lg);
+            }
+
+            .skill-category h3 {
+                font-size: 1.1rem;
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .skill-items {
+                flex-wrap: wrap;
+                gap: var(--spacing-sm);
+            }
+
+            .skill-badge {
+                font-size: 0.85rem;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
+            /* Education Section */
+            .education-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--spacing-lg);
+            }
+
+            .education-card {
+                padding: var(--spacing-lg);
+            }
+
+            .education-card h3 {
+                font-size: 1.15rem;
+            }
+
+            /* About Section */
+            .about-content {
+                grid-template-columns: 1fr !important;
+                gap: var(--spacing-lg);
+                text-align: center;
+            }
+
+            .about-text {
+                padding: 0;
+            }
+
+            /* Footer */
+            footer {
+                padding: var(--spacing-xl) var(--spacing-lg);
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile: 480px and below */
+        @media (max-width: 480px) {
+            :root {
+                --spacing-xl: 0.75rem;
+                --spacing-lg: 1rem;
+            }
+
+            /* Scrollable fix */
+            body {
+                font-size: 14px;
+            }
+
+            /* Navigation */
+            nav {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .logo {
+                font-size: 1.1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-links {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                gap: var(--spacing-sm);
+                font-size: 0.75rem;
+            }
+
+            .nav-links a {
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+
+            /* Language Toggle */
+            .lang-toggle {
+                top: var(--spacing-md);
+                right: var(--spacing-md);
+                padding: 0;
+            }
+
+            .lang-btn {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.65rem;
+                border-right: none !important;
+            }
+
+            /* Hero */
+            h1 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .cta-buttons {
+                gap: var(--spacing-sm);
+            }
+
+            .btn {
+                padding: var(--spacing-md) var(--spacing-lg);
+                font-size: 0.9rem;
+            }
+
+            /* Sections */
+            .container {
+                padding: var(--spacing-md);
+                margin: var(--spacing-md) 0;
+            }
+
+            section {
+                padding: var(--spacing-lg) var(--spacing-md) !important;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: var(--spacing-md);
+            }
+
+            h3 {
+                font-size: 1.05rem !important;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            /* Cards */
+            .experience-card,
+            .education-card,
+            .skill-category {
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-md);
+            }
+
+            /* Skill Badges - Single Row Wrap */
+            .skill-badge {
+                font-size: 0.8rem;
+                padding: var(--spacing-xs) var(--spacing-sm);
+                white-space: nowrap;
+            }
+
+            /* List items */
+            ul, ol {
+                margin-left: var(--spacing-lg);
+                font-size: 0.9rem;
+            }
+
+            li {
+                margin-bottom: var(--spacing-xs);
+            }
+
+            /* Footer */
+            footer {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Extra small devices: 360px and below */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1.25rem !important;
+            }
+
+            h2 {
+                font-size: 1.25rem !important;
+            }
+
+            .nav-links {
+                font-size: 0.65rem;
+                gap: var(--spacing-xs);
+            }
+
+            .nav-links a {
+                padding: var(--spacing-xs) var(--spacing-xs);
+            }
+
+            .btn {
+                padding: var(--spacing-md) var(--spacing-md);
+                font-size: 0.85rem;
+            }
+        }
+        </style>
 </head>
 <body>
     <!-- Navigation -->
